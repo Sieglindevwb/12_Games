@@ -1,9 +1,21 @@
 /* 
 Number Guessing Game 
-Computer = 1 to 10
+Computer = 1 to 24
 User has to guess the number 
 The user gets 3 chances to do so
 */
+let secretNumber;
+
+while (!secretNumber || secretNumber < 1 || secretNumber > 24) {
+    secretNumber = Math.floor(Math.random() * 24) + 1;
+}
+
+console.log(secretNumber);
+
+
+// console.log(secretNumber);
+
+
 
 // TODO: A secret number will be generated -> should be between 1 and 24 -> With the while loop
 // TODO: A user can enter a guess (add HTML element)
