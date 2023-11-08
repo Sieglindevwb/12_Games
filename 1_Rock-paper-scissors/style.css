@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    margin-top: 50px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.choicebtn {
+    background-color: #f1f1f1;
+    padding: 20px 40px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.choice:hover {
+    background-color: #ddd;
+}
+
+.playBtn {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.result-message {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
