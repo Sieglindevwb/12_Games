@@ -1,78 +1,70 @@
-const playButton = document.querySelector(".playBtn"); 
-// const playerText = document.querySelector("#playerText");
-// const computerText = document.querySelector("#computerText");
-// const resultText = document.querySelector("#resultText");
-// let player;
-// let computer;
-// let result;
-
 const choices = document.querySelectorAll(".choiceBtn");
-
-// add restart button
+const playButton = document.querySelector(".playBtn");
 const replayButton = document.getElementById("replayBtn");
 replayButton.style.display = "none";
+const resultMessage = document.querySelector(".result-message");
+
+let hasPlayerChosen = false;
+let playerChoice = null;
 
 function determineWinner(playerChoice, computerChoice) {
-    const resultMessage = document.querySelector(".result-message");
+    if (!hasPlayerChosen) {
+        resultMessage.innerHTML = "Please select an icon first.";
+        return;
+    }
+
     if (playerChoice === computerChoice) {
         resultMessage.innerHTML = "It's a draw!";
-        replayButton.style.display = "block";
-    } else if
-    ((playerChoice === "rock" && computerChoice === "scissors") ||
-    (playerChoice === "paper" && computerChoice === "rock") ||
-    (playerChoice === "scissors" && computerChoice === "paper")) {
-    // Player wins
-    // Update the result message
-    resultMessage.innerHTML = "You win!";
-    replayButton.style.display = "block";
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        resultMessage.innerHTML = "You win!";
     } else {
-    // Computer wins
-    // Update the result message
-    resultMessage.innerHTML = "Computer wins!";
-    replayButton.style.display = "block";
+        resultMessage.innerHTML = "Computer wins!";
     }
+
+    replayButton.style.display = "block";
 }
 
-// Function to handle player choice and determine winner
 function handlePlayerChoice(event) {
-    const playerChoice = event.target.dataset.choice;
-    const randomIndex = Math.floor(Math.random() * choices.length);
-    const computerChoice = choices[randomIndex].dataset.choice;
-
-    console.log(computerChoice);
-
-     // Remove existing event listeners for player choices
-     choices.forEach(choice => {
-        choice.removeEventListener("click", handlePlayerChoice);
-    });
-
-    determineWinner(playerChoice, computerChoice);
-
-    // Reattach event listeners after determining the winner
-    choices.forEach(choice => {
-        choice.addEventListener("click", handlePlayerChoice);
-    });
+    playerChoice = event.target.dataset.choice;
+    hasPlayerChosen = true;
 }
-
-playButton.addEventListener("click", (event) =>{
-    // Call handlePlayerChoice directly when the play button is clicked
-    handlePlayerChoice(event);
-});
 
 function resetGame() {
-    const resultMessage = document.querySelector(".result-message");
+    hasPlayerChosen = false;
+    playerChoice = null;
     resultMessage.innerHTML = "";
     replayButton.style.display = "none";
 }
 
-// add event listener to restart button
-replayButton.addEventListener("click", () => {
-    resetGame();
-})
+function initializeGame() {
+    // Attach event listeners for player choices
+    choices.forEach(choice => {
+        choice.addEventListener("click", handlePlayerChoice);
+    });
 
+    // Attach event listener for replay button
+    replayButton.addEventListener("click", resetGame);
 
+    // Attach event listener for play button
+    playButton.addEventListener("click", () => {
+        // Ensure the player has made a choice before clicking play
+        if (hasPlayerChosen && playerChoice !== null) {
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            const computerChoice = choices[randomIndex].dataset.choice;
+            determineWinner(playerChoice, computerChoice);
+        } else {
+            // Show a message to prompt the player to make a choice
+            resultMessage.innerHTML = "Please select an icon first.";
+        }
+    });
+}
 
-
+// Call initializeGame function to set up the initial game state
+initializeGame();
 
 // Have three buttons that the player can press to pick their weapon of choice (feel free to use emoji's for this)
 // Have a play button to have the computer pick one randomly
@@ -85,3 +77,4 @@ replayButton.addEventListener("click", () => {
 //         - How can you select a random element from these choices? The math options in JavaScript might help you here
 // Add replaybutton to the page 
 // When game ends the replay button should appear
+
