@@ -8,10 +8,15 @@ const playButton = document.querySelector(".playBtn");
 
 const choices = document.querySelectorAll(".choiceBtn");
 
+// add restart button
+const replayButton = document.getElementById("replayBtn");
+replayButton.style.display = "none";
+
 function determineWinner(playerChoice, computerChoice) {
     const resultMessage = document.querySelector(".result-message");
     if (playerChoice === computerChoice) {
         resultMessage.innerHTML = "It's a draw!";
+        replayButton.style.display = "block";
     } else if
     ((playerChoice === "rock" && computerChoice === "scissors") ||
     (playerChoice === "paper" && computerChoice === "rock") ||
@@ -19,10 +24,12 @@ function determineWinner(playerChoice, computerChoice) {
     // Player wins
     // Update the result message
     resultMessage.innerHTML = "You win!";
+    replayButton.style.display = "block";
     } else {
     // Computer wins
     // Update the result message
     resultMessage.innerHTML = "Computer wins!";
+    replayButton.style.display = "block";
     }
 }
 
@@ -47,22 +54,21 @@ function handlePlayerChoice(event) {
     });
 }
 
-function resetGame() {
-    const resultMessage = document.querySelector(".result-message");
-    resultMessage.innerHTML = "";
-}
-
-// add restart button
-const replayButton = document.getElementById("replayBtn");
-// add event listener to restart button
-replayButton.addEventListener("click", () => {
-    resetGame();
-})
-
 playButton.addEventListener("click", (event) =>{
     // Call handlePlayerChoice directly when the play button is clicked
     handlePlayerChoice(event);
 });
+
+function resetGame() {
+    const resultMessage = document.querySelector(".result-message");
+    resultMessage.innerHTML = "";
+    replayButton.style.display = "none";
+}
+
+// add event listener to restart button
+replayButton.addEventListener("click", () => {
+    resetGame();
+})
 
 
 
@@ -78,4 +84,4 @@ playButton.addEventListener("click", (event) =>{
 //         - How many choices does the computer have? What can be a suitable datatype to store multiple things?
 //         - How can you select a random element from these choices? The math options in JavaScript might help you here
 // Add replaybutton to the page 
-// TODO: When game ends the replay button should appear
+// When game ends the replay button should appear
