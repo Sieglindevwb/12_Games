@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-paper-scissor Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
     <link rel= "stylesheet" href= "style.css">
 </head>
 <body>
-    <div class="choices">
-    <button class="choiceBtn" data-choice="rock">👊</button>
-    <button class="choiceBtn" data-choice="paper">🤚</button>
-    <button class="choiceBtn" data-choice="scissors">✌️</button>
-    </div>
+    <header>
+        <h1>Rock, paper or scissors?</h1>
+        <h2>Choose your weapon of choice</h2>
+    </header>
+        <div class="choices">
+        <button class="choiceBtn" data-choice="rock"><img src="./img/rock-cat.png" alt="Paw of a cat showing rock"></button>
+        <button class="choiceBtn" data-choice="paper"><img src="./img/paper-cat.png" alt="Catpaw showing paper"></button>
+        <button class="choiceBtn" data-choice="scissors"><img src="./img/scissors-cat.png" alt="Catpaw showing nails as scissors"></button>
+        </div>
 
-    <button class="playBtn">Play</button>
-    
-    <div class="result-message">Result will be displayed here</div>
+        <button class="playBtn">Play</button>
+        
+        <div class="result-message">Result will be displayed here</div>
 
-    <button id="replayBtn">Replay</button>
+        <button class="playBtn" id="replayBtn">Replay</button>
     
     <!-- <h1 class="gameText" id="playerText">Player: </h1>
     <h1 class="gameText" id="computerText">Computer: </h1>

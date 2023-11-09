@@ -1,9 +1,21 @@
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url(./fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 2rem;
     margin-top: 50px;
+    font-family: 'PlayfairDisplay';
+    background-color: #FCDADA;
+}
+
+header {
+   color: #3D7EA6;
+   font-size: xx-large;
 }
 
 .choices {
@@ -12,25 +24,54 @@ body {
     margin-bottom: 20px;
 }
 
-.choicebtn {
-    background-color: #f1f1f1;
+.choiceBtn {
+    text-decoration: none;
+    background-color: #FFA5A5;
     padding: 20px 40px;
-    border: 1px solid #ccc;
+    margin: 1vw;
+    border: 1px solid #FFA5A5;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 50px;
+    border-radius: 5px;
 }
 
 .choice:hover {
     background-color: #ddd;
 }
 
+.choiceBtn:hover {
+    transform: scale(1.2);
+}
+
 .playBtn {
     font-size: 1.5rem;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     cursor: pointer;
+    background-color: #FFA5A5;
+    border: 1px solid #FFA5A5;
+    border-radius: 5px;
+    padding: 20px 40px;
+    font-size: 50px;
+    color: white;
 }
 
 .result-message {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
+    color:#3D7EA6
+}
+
+.replayBtn {
+    font-size: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    background-color: #3D7EA6;
+    border: 1px solid #3D7EA6;
+    border-radius: 5px;
+    padding: 20px 40px;
+    font-size: 50px;
+    color: white;
 }
