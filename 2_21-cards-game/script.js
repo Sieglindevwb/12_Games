@@ -25,5 +25,6 @@ function handleDrawCard () {
 
 // Include a button or some element that the user can click to draw a card.
 // When the user clicks the button, you'll want to ask them if they want to draw a card.
-// TODO: If the user wants to draw a card, you'll need a mechanism to draw a card.
-// TODO: If they don't want to draw a card, you can end the game or perform some other action.
+// If the user wants to draw a card, you'll need a mechanism to draw a card.
+// If they don't want to draw a card, you can end the game or perform some other action.
+// TODO: Implement a way to draw a card. This might involve having an array or a deck of cards, and you randomly select a card when the user wants to draw.
