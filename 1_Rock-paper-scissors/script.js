@@ -7,7 +7,14 @@ const resultMessage = document.querySelector(".result-message");
 let hasPlayerChosen = false;
 let playerChoice = null;
 
+function handlePlayerChoice(event) {
+    playerChoice = event.currentTarget.dataset.choice;
+    hasPlayerChosen = true;
+    console.log("Player Choice:", playerChoice);
+}
+
 function determineWinner(playerChoice, computerChoice) {
+    console.log("Computer Choice:", computerChoice);
     if (!hasPlayerChosen) {
         resultMessage.innerHTML = "Please select an icon first.";
         return;
@@ -26,11 +33,6 @@ function determineWinner(playerChoice, computerChoice) {
     }
 
     replayButton.style.display = "block";
-}
-
-function handlePlayerChoice(event) {
-    playerChoice = event.target.dataset.choice;
-    hasPlayerChosen = true;
 }
 
 function resetGame() {
