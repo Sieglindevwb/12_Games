@@ -13,11 +13,6 @@ body {
     background-color: #FCDADA;
 }
 
-header {
-   color: #3D7EA6;
-   font-size: xx-large;
-}
-
 .choices {
     display: flex;
     justify-content: space-around;
@@ -75,3 +70,16 @@ header {
     font-size: 50px;
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+   .choices{
+    flex-direction: column;
+    max-width: 100%;
+   }
+} 
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .choices{
+        max-width: 100%;
+       }
+  }
