@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url(./1_Rock-paper-scissors/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+body {
+    margin: auto;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #B5CB99;
+}
+
+button {
+    padding: 2rem;
+    margin: 2rem;
+    background-color: #186F65;
+    color: white;
+    border: none;
+    border-radius: 3rem;
+    font-family: 'PlayfairDisplay', sans-serif;
+    font-size: 3rem;
+    width: 40vw;
+    position: relative;
+    z-index: 2; /* Ensure the button is visually on top */
+}
+
+button:hover {
+    background-color: #FCE09B;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.815);
+    transform: scale(1.1);
+    color: #186F65;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0); /* Transparent by default */
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+    z-index: 1; /* Ensure the overlay is visually behind the button */
+}
+
+button:hover + .overlay {
+    background-color: rgba(0, 0, 0, 0.815); /* Make the overlay fully visible on button hover */
+}
+
+img {
+    width: 20vw;
+}
